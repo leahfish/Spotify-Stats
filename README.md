@@ -263,7 +263,14 @@ The two versions give the same top suggestion for 80% of my unsorted Liked Songs
 
 1. Create a Spotify app at developer.spotify.com with the redirect URI `http://127.0.0.1:8888/callback`, and get a Last.fm API key at last.fm/api.
 2. Make a `.env` file in this folder with `SPOTIPY_CLIENT_ID`, `SPOTIPY_CLIENT_SECRET`, `SPOTIPY_REDIRECT_URI`, and `LASTFM_API_KEY`. Change `LASTFM_USER` in `pull_lastfm.py` to your Last.fm username.
-3. Install the packages: `pip install -r requirements.txt` (the saved model needs this exact scikit-learn version to load)
+3. Create and activate a virtual environment, then install the packages (the saved model needs this exact scikit-learn version to load):
+   ```
+   python -m venv .venv
+   source .venv/Scripts/activate      # Git Bash on Windows (macOS/Linux: source .venv/bin/activate)
+   .venv\Scripts\Activate.ps1         # or PowerShell
+   pip install -r requirements.txt
+   ```
+   Once `(.venv)` shows in the prompt, plain `python` uses it. In Git Bash, write paths with forward slashes (`.venv/Scripts/python`); backslashes get swallowed.
 4. Run, in order: `pull_songs.py`, `pull_playlists.py`, `pull_audio_features.py`, `pull_lastfm.py`. The playlist and Last.fm scripts have a `--test` option for a small trial run, and the audio and Last.fm scripts pick up where they left off if stopped. The Last.fm pull takes a couple of hours at about one lookup per second.
 5. Run the notebooks in order: `build_dataset.ipynb`, `analysis.ipynb`, `playlists.ipynb`.
 
