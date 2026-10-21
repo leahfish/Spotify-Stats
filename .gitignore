@@ -1,0 +1,19 @@
+# Secrets and the saved Spotify login
+.env
+.cache
+
+# Python environment and clutter
+.venv/
+__pycache__/
+.ipynb_checkpoints/
+
+# Local Claude Code settings
+.claude/
+
+# Personal listening data stays local. Only liked_songs_clean.csv is shared.
+liked_songs_raw.csv
+playlist_tracks.csv
+playlist_suggestions.csv
+lastfm_*.csv
+audio_features.csv
+audio_features_checked.txt
